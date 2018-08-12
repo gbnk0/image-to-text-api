@@ -7,6 +7,8 @@ import (
 	"io/ioutil"
 	"os"
 
+	"strings"
+
 	"github.com/gin-gonic/gin"
 	"github.com/otiai10/gosseract"
 )
@@ -30,6 +32,7 @@ func getVersion() string {
 			fmt.Print(err)
 		}
 		version = string(b)
+		version = strings.TrimSuffix(version, "\n")
 	}
 	return version
 }
