@@ -2,19 +2,17 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/otiai10/gosseract"
-
-	"net/http"
-	"os"
-	// "path/filepath"
 )
 
 func main() {
 	r := gin.Default()
 
-	r.POST("/upload", func(c *gin.Context) {
+	r.POST("/text", func(c *gin.Context) {
 		file, err := c.FormFile("file")
 
 		if err != nil {
