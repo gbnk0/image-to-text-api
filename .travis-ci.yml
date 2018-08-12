@@ -1,0 +1,16 @@
+jobs:
+  include:
+    - stage: build-image
+      script:
+        - echo $TRAVIS_BUILD_NUMBER > version.txt
+        - docker build --build-arg VCS_REF=`git rev-parse --short HEAD` -t $DOCKER_USER/image-to-text-api .
+
+      after_success:
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
+        - docker tag $DOCKER_USER/image-to-text-api $DOCKER_USER/image-to-text-api:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USER/image-to-text-api:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USER/image-to-text-api:latest
+        - curl -XPOST https://hooks.microbadger.com/images/gbnk0/image-to-text-api/_WZPSkqhhy137pspxCtRGxofefI=
+branches:
+  only:
+    - master
