@@ -2,11 +2,12 @@ package main
 
 import (
 	"bytes"
+	"flag"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
-
+	"strconv"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -44,6 +45,9 @@ func check(e error) {
 
 func main() {
 	r := gin.Default()
+	host := flag.String("h", "0.0.0.0", "Set port for listening")
+	port := flag.Int("p", 8000, "Set port for listening")
+	flag.Parse()
 
 	r.POST("/text", func(c *gin.Context) {
 		file, _, err := c.Request.FormFile("file")
@@ -72,5 +76,7 @@ func main() {
 		})
 
 	})
-	r.Run(":8000")
+
+	bindString := *host + ":" + strconv.Itoa(*port)
+	r.Run(bindString)
 }
