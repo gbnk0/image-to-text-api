@@ -10,7 +10,7 @@ RUN apk add git gcc g++ go tesseract-ocr tesseract-ocr-dev && \
     go get github.com/gin-gonic/gin && \
     go get github.com/otiai10/gosseract && \
     go build main.go && \
-    apk del git gcc g++ go && \
+    apk del git gcc g++ go tesseract-ocr-dev&& \
     rm main.go
 ENV GIN_MODE release
 CMD ["./main"]
