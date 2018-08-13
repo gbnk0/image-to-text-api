@@ -1,5 +1,5 @@
 FROM alpine:3.7
-MAINTAINER gbnk0 github.com/gbnk0
+MAINTAINER gbnk0 <github.com/gbnk0>
 ARG VCS_REF
 LABEL org.label-schema.vcs-ref=$VCS_REF \
         org.label-schema.vcs-url="https://github.com/gbnk0/image-to-text-api"
