@@ -7,6 +7,12 @@ Recognize text on JPEG images using tesseract ocr (gosseract)
 [![](https://images.microbadger.com/badges/version/gbnk0/image-to-text-api.svg)](https://microbadger.com/images/gbnk0/image-to-text-api "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/commit/gbnk0/image-to-text-api.svg)](https://microbadger.com/images/gbnk0/image-to-text-api "Get your own commit badge on microbadger.com")
 
+### QUICK START
+
+```
+docker run -p8000:8000 gbnk0/image-to-text-api:latest
+```
+
 ### API ENDPOINTS
 
 #### POST /text
