@@ -19,6 +19,7 @@ func getText(image []byte) string {
 	defer client.Close()
 
 	client.SetImageFromBytes(image)
+	client.Languages = []string{"eng", "fra"}
 	text, _ := client.Text()
 	return text
 }
