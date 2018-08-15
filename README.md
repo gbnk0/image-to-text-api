@@ -34,5 +34,5 @@ Get the service build number
 
 ```
 #> curl -X GET   http://localhost:8000/version
-#> {"status":"success","version":"67"}
+#> {"status":"success","version":"15"}
 ```
