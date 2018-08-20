@@ -23,7 +23,7 @@ Recognize text on an image from url
 
 ```
 #> curl -X POST   http://localhost:8000/text -F file=@/home/user/image.jpg
-#> {"status":"success","text":"TEXTIOO"}
+#> {"status":"success","text":"HELLO"}
 ```
 
 #### GET /version
